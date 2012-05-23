@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email = "magnus@bestvendor.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".document",
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
     "after_commit_action.gemspec",
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.21"
-  s.summary = "Easily defer blocks of code to the after-commit callback of an ActiveRecord model."
+  s.summary = "Easily defer blocks of code to the after-commit action of an ActiveRecord model."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
