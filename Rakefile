@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "after_commit_action"
   gem.homepage = "http://github.com/magnusvk/after_commit_action"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Easily defer blocks of code to the after-commit action of an ActiveRecord model.}
+  gem.description = %Q{Use this module to defer actions to the after-commit hook. This is useful if you want to trigger actions in after_create, after_destroy and after_update callbacks but want to execute them outside of the transaction (for example, to avoid deadlocks).}
   gem.email = "magnus@bestvendor.com"
   gem.authors = ["BestVendor"]
   # dependencies defined in Gemfile
