@@ -13,27 +13,18 @@ module AfterCommitAction
   module ActiveRecord
 
     def self.included(base)
-      # also add class methods to ActiveRecord::Base
-      base.extend ClassMethods
-    end
-
-    module ClassMethods
-
-      def self.included(base)
-        base.after_commit :_after_commit_hook
-      end
-
+      base.after_commit :_after_commit_hook
     end
 
     def execute_after_commit(&block)
-      @execute_after_commit ||= []
-      @execute_after_commit<< block
+      @_execute_after_commit ||= []
+      @_execute_after_commit<< block
     end
     
     def _after_commit_hook
       begin
-        until @execute_after_commit.blank?
-          @execute_after_commit.shift.call
+        until @_execute_after_commit.blank?
+          @_execute_after_commit.shift.call
         end
       rescue => e
         if defined?(Exceptional)
