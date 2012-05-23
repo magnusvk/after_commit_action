@@ -26,14 +26,14 @@ module AfterCommitAction
     end
 
     def execute_after_commit(&block)
-      @_execute_after_commit ||= []
-      @_execute_after_commit<< block
+      @execute_after_commit ||= []
+      @execute_after_commit<< block
     end
     
     def _after_commit_hook
       begin
-        until @_execute_after_commit.blank?
-          @_execute_after_commit.shift.call
+        until @execute_after_commit.blank?
+          @execute_after_commit.shift.call
         end
       rescue => e
         if defined?(Exceptional)
