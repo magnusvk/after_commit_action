@@ -1,7 +1,7 @@
 # use this module to defer actions to the after-commit hook. this is useful if you want
 # to trigger actions in after_create, after_destroy and after_update callbacks but want
 # to execute them outside of the transaction (for example, to avoid deadlocks).
-# 
+#
 # Usage:
 # after_create :my_hook
 # def my_hook
@@ -9,7 +9,7 @@
 # end
 
 module AfterCommitAction
-  
+
   module ActiveRecord
 
     def self.included(base)
@@ -20,7 +20,7 @@ module AfterCommitAction
       @_execute_after_commit ||= []
       @_execute_after_commit<< block
     end
-    
+
     def _after_commit_hook
       begin
         until @_execute_after_commit.blank?
@@ -38,9 +38,18 @@ module AfterCommitAction
         raise e
       end
     end
-  
+
   end
 
-  ::ActiveRecord::Base.send :include, ActiveRecord
-  
+  if defined?(Rails) # if this is a full blown rails app, use a railtie. This avoids deprecation warnings in Rails 4.2
+    class Railtie < Rails::Railtie
+      initializer "active_record.include_plugins" do
+        ActiveSupport.on_load(:active_record) do
+          ::ActiveRecord::Base.send :include, ActiveRecord
+        end
+      end
+    end
+  else
+    ::ActiveRecord::Base.send :include, ActiveRecord
+  end
 end
