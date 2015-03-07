@@ -1,4 +1,6 @@
 class Tester < ActiveRecord::Base
+  include AfterCommitAction
+
   after_initialize :after_initialize
 
   before_create :before_create
@@ -15,7 +17,7 @@ class Tester < ActiveRecord::Base
   def before_create
     execute_after_commit { @array<< 'before_create' }
   end
-  
+
   def after_create
     execute_after_commit { @array<< 'after_create' }
   end

@@ -5,6 +5,7 @@ Use this module to defer actions to the after-commit hook. This is useful if you
 ## Usage
 
 ```ruby
+include AfterCommitAction
 after_create :my_hook
 def my_hook
   execute_after_commit { puts "This is called after committing the transaction. "}
