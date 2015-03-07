@@ -21,8 +21,6 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Use this module to defer actions to the after-commit hook. This is useful if you want to trigger actions in after_create, after_destroy and after_update callbacks but want to execute them outside of the transaction (for example, to avoid deadlocks).}
   gem.email = "magnus@bestvendor.com"
   gem.authors = ["BestVendor"]
-  
-  gem.add_dependency 'activerecord', '>= 3.0.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
