@@ -1,5 +1,8 @@
 source "http://rubygems.org"
 
+gem "activerecord", ">= 3.0.0"
+gem "activesupport", ">= 3.0.0"
+
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development, :test do
