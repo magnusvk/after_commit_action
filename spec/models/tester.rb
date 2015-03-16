@@ -29,4 +29,8 @@ class Tester < ActiveRecord::Base
   def after_update
     execute_after_commit { @array<< 'after_update' }
   end
+
+  def increment_counter
+    execute_after_commit { increment! :count }
+  end
 end
