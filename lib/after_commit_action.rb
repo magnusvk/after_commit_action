@@ -17,6 +17,11 @@ module AfterCommitAction
   end
 
   def execute_after_commit(&block)
+    if ActiveRecord::Base.connection.open_transactions == 0 ||
+      ActiveRecord::Base.connection.add_transaction_record(self).nil?
+      return block.call
+    end
+
     @_execute_after_commit ||= []
     @_execute_after_commit<< block
   end

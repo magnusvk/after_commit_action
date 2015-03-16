@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(:version => 20120522160158) do
 
   create_table "testers", :force => true do |t|
     t.string   "name"
+    t.integer  "count", :default => 0
+  end
+
+  create_table "another_models", :force => true do |t|
+    t.string   "tester_id"
   end
 
 end
