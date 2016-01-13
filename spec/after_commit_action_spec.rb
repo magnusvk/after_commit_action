@@ -24,16 +24,18 @@ describe "AfterCommitAction" do
     let(:tester)        { Tester.create count: 0 }
     let(:another_model) { AnotherModel.new tester: tester }
 
-    subject { another_model.save! }
+    subject {}
 
-    it { expect { subject }.to change { tester.reload.count }.from(0).to 1 }
+    it "increments the counter" do
+      expect { another_model.save! }.to change { tester.reload.count }.from(0).to 1
+    end
   end
 
   context 'when there is no transaction' do
     let(:tester) { Tester.create count: 0 }
 
-    subject { tester.increment_counter }
-
-    it { expect { subject }.to change { tester.reload.count }.from(0).to 1 }
+    it "increments the counter" do
+      expect { tester.increment_counter }.to change { tester.reload.count }.from(0).to 1
+    end
   end
 end
