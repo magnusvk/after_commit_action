@@ -87,7 +87,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/magnusvk/after_commit_action"
   s.licenses = ["MIT"]
-  s.rubygems_version = "2.5.1"
+  s.rubygems_version = "2.2.2"
   s.summary = "Easily defer blocks of code to the after-commit action of an ActiveRecord model."
 
   if s.respond_to? :specification_version then
