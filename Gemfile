@@ -15,7 +15,7 @@ group :development do
   gem "jeweler", "~> 2.0.1"
 end
 
-group :test do
+group :development, :test do
   gem "rspec", "~> 2.8.0"
   gem "sqlite3"
   gem "rspec-extra-formatters"
