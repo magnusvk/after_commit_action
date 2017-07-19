@@ -6,18 +6,18 @@ require 'models/another_model'
 describe "AfterCommitAction" do
   it "should correctly execute tasks after commit" do
     t = Tester.new
-    t.array.should be_empty
+    expect(t.array).to be_empty
     t.save!
-    t.array.size.should == 2
-    t.array.should include('before_create')
-    t.array.should include('after_create')
+    expect(t.array.size).to eq(2)
+    expect(t.array).to include('before_create')
+    expect(t.array).to include('after_create')
 
     t = Tester.first
-    t.array.should be_empty
+    expect(t.array).to be_empty
     t.save!
-    t.array.size.should == 2
-    t.array.should include('before_update')
-    t.array.should include('after_update')
+    expect(t.array.size).to eq(2)
+    expect(t.array).to include('before_update')
+    expect(t.array).to include('after_update')
   end
 
   context 'when block is executed in another model transaction' do
