@@ -85,7 +85,7 @@ Gem::Specification.new do |s|
     "spec/schema.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/magnusvk/after_commit_action".freeze
+  s.homepage = "https://github.com/magnusvk/after_commit_action".freeze
   s.licenses = ["MIT".freeze]
   s.rubygems_version = "2.6.10".freeze
   s.summary = "Easily defer blocks of code to the after-commit action of an ActiveRecord model.".freeze
